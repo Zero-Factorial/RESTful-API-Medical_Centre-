@@ -23,7 +23,10 @@ router.put('/doctors/:id', function(req, res,next){
 
 // delete a ninja from the db
 router.delete('/doctors/:id', function(req, res,next){
-    res.send({type: 'DELETE'});
+    Doctor.findByIdAndRemove({_id:req.params.id}).then(function(doctor){
+      res.send(doctor);
+    });
+    
 });
 
 module.exports = router;
