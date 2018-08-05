@@ -14,7 +14,7 @@ const DoctorSchema = new Schema({
         default:false
     }
 
-    // add in geo location
+  
 
 }); 
 
