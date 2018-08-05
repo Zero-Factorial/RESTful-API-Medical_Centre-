@@ -21,7 +21,7 @@ router.put('/doctors/:id', function(req, res,next){
     res.send({type: 'PUT'});
 });
 
-// delete a ninja from the db
+
 router.delete('/doctors/:id', function(req, res,next){
     Doctor.findByIdAndRemove({_id:req.params.id}).then(function(doctor){
       res.send(doctor);
