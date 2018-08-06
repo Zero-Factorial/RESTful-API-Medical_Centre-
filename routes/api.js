@@ -4,7 +4,9 @@ const Doctor = require('../models/doctor')
 
 // get a list of ninjas from the db
 router.get('/doctors', function(req, res,next){
-    res.send({type: 'GET'});
+    Doctor.find({}).then(function(doctors){
+        res.send(doctors);
+    });
 });
 
 // add a new ninja to the db
