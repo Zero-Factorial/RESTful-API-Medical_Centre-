@@ -18,7 +18,11 @@ router.post('/doctors', function(req, res,next){
 
 // update a ninja in the db
 router.put('/doctors/:id', function(req, res,next){
-    res.send({type: 'PUT'});
+    Doctor.findByIdAndUpdate({_id:req.params.id},req.body).then(function(){
+          Doctor.findOne({_id:req.params.id}).then(function(doctor){
+            res.send(doctor);
+          });
+     });    
 });
 
 
